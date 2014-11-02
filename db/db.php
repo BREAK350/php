@@ -1,0 +1,5 @@
+path = "localhost"
+user = "root"
+password = "root"
+db_simple = "clubs"
+db_tables = "monitors"

@@ -1,18 +1,20 @@
-<!-- Лабораторна робота №5.2
-Отримати всю інформацію із бд і вивести її у вікно браузера.
-Створити форму для добавлення нового запису у бд і реалізувати її обробку.
+<!-- Лабораторна робота №2
+Отримати всю інформацію із файлу і вивести її у вікно браузера.
+Створити форму для добавлення нового запису у файл і реалізувати її обробку.
 -->
 <?php
+require_once $dir_functional . 'model/data base/db.php';
+require_once $dir_functional . 'model/model.php';
+require_once $dir_functional . 'view/view.php';
 if (isset ( $_POST ['submit'] )) {
-	include_once $dir_functional . 'addData.php';
-	if (($res = addData ()) !== true) {
-		?>
-<h2><?php echo $res;?></h2>
-<?php
+	$ass_array = readFromPOST_createArray ();
+	if ($ass_array === false) {
+		echo "<h2>Некоректні дані!</h2>";
+	} else {
+		saveToDB ( $ass_array );
 	}
 }
-// створюємо двовимірний масив, рядками якого є записи, а стовпці - атрибутами.
-include $dir_functional . 'load from file/index.php';
-// відображаємо дані.
-include $dir_functional . 'lab/2/index.php';
+$monitors = loadFromDB ();
+printTable ( $monitors );
+include $dir_functional . 'view/form.php';
 ?>
