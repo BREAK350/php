@@ -3,17 +3,14 @@
 різних марок моніторів, що зустрічаються у файлі.
 -->
 <?php
+require_once $dir_functional . 'model/file/file.php';
+require_once $dir_functional . 'model/model.php';
+require_once $dir_functional . 'view/view.php';
 // створюємо двовимірний масив, рядками якого є записи, а стовпці - атрибутами.
-include $dir_functional . 'load from file/index.php';
+$monitors = loadFromFile ( $dir_data . "monitors.txt" );
 // сортуємо масив.
-include $dir_functional . 'sort/index.php';
+sortMonitors ( $monitors );
 // відображаємо вміст файлу у вигляді таблиці.
-include $dir_functional . 'show table/index.php';
-// Обчисляємо кількість різних марок
-$only_brand = array ();
-for($i = 0; $i < $count_of_monitors; $i ++) {
-	$only_brand [$i] = $monitors [$i] [0];
-}
-$diff_brand = array_count_values ( $only_brand );
+printTable ( $monitors );
 ?>
-<p>Всього різних марок: <?php echo count($diff_brand);?>.</p>
+<p>Всього різних марок: <?php echo getCountOfDifferentBrand($monitors);?>.</p>
