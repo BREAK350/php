@@ -27,8 +27,8 @@
 	<div class="header shadow">
 		<?php include 'header.php';?>
 	</div>
-	<div class="content shadow">
-		<?php include 'content.php';?>
+	<div class="menu_content shadow">
+		<?php include 'menu_content.php';?>
 	</div>
 	<div class="footer shadow">
 		<?php include 'footer.php';?>

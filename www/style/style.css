@@ -36,13 +36,13 @@
 	text-shadow: 0 0 2px black, 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.content {
+.menu_content {
 	border-color: rgba(0, 0, 255, 0.5);
 	padding: 10px;
 	margin-bottom: 30px;
 }
 
-.contents {
+.content {
 	border-color: blue;
 	float: left;
 	padding: 5px;
